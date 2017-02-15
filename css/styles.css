@@ -1509,7 +1509,7 @@ header.large .brand {
   color: #ffbf00;
 }
 #contact .contact-box img {
-  border: 1px solid #ffbf00;
+  /*border: 1px solid #ffbf00;*/
   float: left;
   margin-right: 20px;
 }
