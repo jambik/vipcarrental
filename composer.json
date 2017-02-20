@@ -1,0 +1,13 @@
+{
+    "name": "jambik/vipcarrental",
+    "type": "project",
+    "authors": [
+        {
+            "name": "jambik",
+            "email": "jambik@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^5.2"
+    }
+}
