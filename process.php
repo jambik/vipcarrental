@@ -27,6 +27,7 @@ if (isset($_POST['form']) && $_POST['form'] == 'contactus') {
     }
 
     $mail = new PHPMailer();
+    $mail->setFrom('info@vipcarrental.biz');
     $mail->addAddress(EMAIL_ADDRESS);
     $mail->CharSet = 'utf-8';
     $mail->isHTML(true);
@@ -73,6 +74,7 @@ if (isset($_POST['form']) && $_POST['form'] == 'checkout') {
     }
 
     $mail = new PHPMailer();
+    $mail->setFrom('order@vipcarrental.biz');
     $mail->addAddress(EMAIL_ADDRESS);
     $mail->CharSet = 'utf-8';
     $mail->isHTML(true);
