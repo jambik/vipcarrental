@@ -1146,8 +1146,10 @@
             <div class="contact-box-border">&nbsp;</div>
         </div>
         <div class="col-md-8 col-xs-12 pull-left">
-            <p class="contact-info">You have any questions or need additional information? <br>
-                <span class="address"><span class="highlight">Address:</span> Car|Rental / UAE / Dubai / Sheikh Zayed Rd / Al Attar Tower</span></p>
+            <p class="contact-info">
+                You have any questions or need additional information? <br>
+                <span class="address"><span class="highlight">Address:</span> Car|Rental / UAE / Dubai / Sheikh Zayed Rd / Al Attar Tower</span>
+            </p>
             <form action="#" method="post" id="contact-form" name="contact-form">
                 <input type="hidden" name="action" value="send_contact_form"/>
 
@@ -1171,9 +1173,8 @@
                     <textarea class="form-control message" name="message" placeholder="Message:"></textarea>
                 </div>
 
+                <input type="hidden" name="form" value="contactus">
                 <input type="submit" class="btn submit-message" name="submit-message" value="Submit Message">
-
-
             </form>
         </div>
 
@@ -1416,7 +1417,7 @@
                     </div>
                     <!-- Checkout Address Info end -->
 
-                    <div class="newsletter">
+                    <!--<div class="newsletter">
                         <div class="form-group">
                             <div class="checkbox">
                                 <input id="check1" type="checkbox" name="newsletter" value="yes">
@@ -1424,7 +1425,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div>-->
                 </div>
                 <!-- Modal body end -->
 
@@ -1439,6 +1440,7 @@
                 </div>
                 <!-- Modal footer end -->
 
+                <input type="hidden" name="form" value="checkout">
             </form>
         </div>
     </div>

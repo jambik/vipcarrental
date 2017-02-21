@@ -2,19 +2,110 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-$mail = new PHPMailer();
+$response = null;
+$errors   = null;
 
-$mail->setFrom('from@example.com', 'Mailer');
-$mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+/* SEND CONTACT US FORM */
+if (isset($_POST['form']) && $_POST['form'] == 'contactus') {
 
-$mail->isHTML(true);                                  // Set email format to HTML
+    $data['firstname'] = $_POST['first-name'];
+    $data['lastname'] = $_POST['last-name'];
+    $data['telephone'] = $_POST['telephone'];
+    $data['email'] = $_POST['email'];
+    $data['message'] = $_POST['message'];
 
-$mail->Subject = 'Here is the subject';
-$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    if (empty($data['firstname'])) {
+        $errors[] = 'Please enter your name';
+    }
+    if (empty($data['email'])) {
+        $errors[] = 'Please enter your email';
+    }
+    if (empty($data['message'])) {
+        $errors[] = 'Please enter your message';
+    }
 
-if(!$mail->send()) {
-    echo 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'Message has been sent';
+    $mail = new PHPMailer();
+
+    $mail->setFrom('from@example.com', 'Mailer');
+    $mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+    $mail->CharSet = 'utf-8';
+
+    $mail->isHTML(true);                                  // Set email format to HTML
+
+    $mail->Subject = 'Contact us';
+
+    $loader = new Twig_Loader_Filesystem('/');
+    $twig = new Twig_Environment($loader);
+
+    $mail->Body = $twig->render('email_contactus.tpl', ['data' => $data]);
+
+    if ( ! $errors) {
+        if (!$mail->send()) {
+            $errors[] = 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            $response['result'] = 'success';
+            $response['message'] = 'Message has been sent';
+        }
+    }
 }
+
+/* SEND CHECKOUT FORM */
+if (isset($_POST['form']) && $_POST['form'] == 'checkout') {
+
+    $data['car'] = $_POST['selected-car'];
+    $data['pickup'] = $_POST['pick-up'];
+    $data['dropoff'] = $_POST['drop-off'];
+    $data['pickuplocation'] = $_POST['pickup-location'];
+    $data['dropofflocation'] = $_POST['dropoff-location'];
+
+    $data['firstname'] = $_POST['first-name'];
+    $data['lastname'] = $_POST['last-name'];
+    $data['phone'] = $_POST['phone-number'];
+    $data['age'] = $_POST['age'];
+    $data['email'] = $_POST['email-address'];
+    $data['address'] = $_POST['address'];
+    $data['city'] = $_POST['city'];
+    $data['zip'] = $_POST['zip-code'];
+
+    if (empty($data['firstname'])) {
+        $errors[] = 'Please enter your name';
+    }
+    if (empty($data['email'])) {
+        $errors[] = 'Please enter your email';
+    }
+
+    $mail = new PHPMailer();
+
+    $mail->setFrom('from@example.com', 'Mailer');
+    $mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+    $mail->CharSet = 'utf-8';
+
+    $mail->isHTML(true);                                  // Set email format to HTML
+
+    $mail->Subject = 'Car Reservation';
+
+    $loader = new Twig_Loader_Filesystem('/');
+    $twig = new Twig_Environment($loader);
+
+    $mail->Body = $twig->render('email_reservation.tpl', ['data' => $data]);
+
+    if ( ! $errors) {
+        if (!$mail->send()) {
+            $errors[] = 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            $response['result'] = 'success';
+            $response['message'] = 'Message has been sent';
+        }
+    }
+}
+
+// Make error text
+if ($errors) {
+    $response['result'] = 'error';
+    foreach ($errors as $error) {
+        $response['message'].= '<div>' . $error . '</div>';
+    }
+}
+
+// Response
+echo json_encode($response);

@@ -314,40 +314,40 @@ $( "#newsletter-form" ).submit(function() {
 // Contact Form
 //-------------------------------------------------------------------------------
 
-$( "#contact-form" ).submit(function() {
+$("#contact-form").submit(function () {
 
-  $('#contact-form-msg').addClass('hidden');
-  $('#contact-form-msg').removeClass('alert-success');
-  $('#contact-form-msg').removeClass('alert-danger');
+    $('#contact-form-msg').addClass('hidden');
+    $('#contact-form-msg').removeClass('alert-success');
+    $('#contact-form-msg').removeClass('alert-danger');
 
-  $('#contact-form input[type=submit]').attr('disabled', 'disabled');
+    $('#contact-form input[type=submit]').attr('disabled', 'disabled');
 
-  $.ajax({
-    type: "POST",
-    url: "php/index.php",
-    data: $("#contact-form").serialize(),
-    dataType: "json",
-    success: function(data) {
+    $.ajax({
+        type: "POST",
+        url: "process.php",
+        data: $("#contact-form").serialize(),
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+            if ('success' == data.result) {
+                $('#contact-form-msg').css('visibility', 'visible').hide().fadeIn().removeClass('hidden').addClass('alert-success');
+                $('#contact-form-msg').html(data.message);
+                $('#contact-form input[type=submit]').removeAttr('disabled');
+                $('#contact-form')[0].reset();
+            }
 
-      if('success' == data.result)
-      {
-        $('#contact-form-msg').css('visibility','visible').hide().fadeIn().removeClass('hidden').addClass('alert-success');
-        $('#contact-form-msg').html(data.msg[0]);
-        $('#contact-form input[type=submit]').removeAttr('disabled');
-        $('#contact-form')[0].reset();
-      }
+            if ('error' == data.result) {
+                $('#contact-form-msg').css('visibility', 'visible').hide().fadeIn().removeClass('hidden').addClass('alert-danger');
+                $('#contact-form-msg').html(data.message);
+                $('#contact-form input[type=submit]').removeAttr('disabled');
+            }
 
-      if('error' == data.result)
-      {
-        $('#contact-form-msg').css('visibility','visible').hide().fadeIn().removeClass('hidden').addClass('alert-danger');
-        $('#contact-form-msg').html(data.msg[0]);
-        $('#contact-form input[type=submit]').removeAttr('disabled');
-      }
+        },
+        complete: function (data) {
+            $('#contact-form input[type=submit]').removeAttr('disabled');
+        }
+    });
 
-    }
-  });
-
-  return false;
+    return false;
 });
 
 
@@ -417,50 +417,50 @@ $( "#car-select-form" ).submit(function() {
 
 // Check Out Form
 //-------------------------------------------------------------------------------
+$("#checkout-form").submit(function () {
 
-$( "#checkout-form" ).submit(function() {
+    $('#checkout-form-msg').addClass('hidden');
+    $('#checkout-form-msg').removeClass('alert-success');
+    $('#checkout-form-msg').removeClass('alert-danger');
 
-  $('#checkout-form-msg').addClass('hidden');
-  $('#checkout-form-msg').removeClass('alert-success');
-  $('#checkout-form-msg').removeClass('alert-danger');
+    $('#checkout-form input[type=submit]').attr('disabled', 'disabled');
 
-  $('#checkout-form input[type=submit]').attr('disabled', 'disabled');
+    $.ajax({
+        type: "POST",
+        url: "process.php",
+        data: $("#checkout-form").serialize(),
+        dataType: "json",
+        success: function (data) {
 
-  $.ajax({
-    type: "POST",
-    url: "php/index.php",
-    data: $("#checkout-form").serialize(),
-    dataType: "json",
-    success: function(data) {
+            if ('success' == data.result) {
+                $('#checkout-form-msg').css('visibility', 'visible').hide().fadeIn().removeClass('hidden').addClass('alert-success');
+                $('#checkout-form-msg').html(data.message);
+                $('#checkout-form input[type=submit]').removeAttr('disabled');
 
-      if('success' == data.result)
-      {
-        $('#checkout-form-msg').css('visibility','visible').hide().fadeIn().removeClass('hidden').addClass('alert-success');
-        $('#checkout-form-msg').html(data.msg[0]);
-        $('#checkout-form input[type=submit]').removeAttr('disabled');
+                setTimeout(function () {
+                    $('.modal').modal('hide');
+                    $('#checkout-form-msg').addClass('hidden');
+                    $('#checkout-form-msg').removeClass('alert-success');
 
-        setTimeout(function(){
-          $('.modal').modal('hide');
-          $('#checkout-form-msg').addClass('hidden');
-          $('#checkout-form-msg').removeClass('alert-success');
+                    $('#checkout-form')[0].reset();
+                    $('#car-select-form')[0].reset();
+                }, 5000);
 
-          $('#checkout-form')[0].reset();
-          $('#car-select-form')[0].reset();
-        }, 5000);
+            }
 
-      }
+            if ('error' == data.result) {
+                $('#checkout-form-msg').css('visibility', 'visible').hide().fadeIn().removeClass('hidden').addClass('alert-danger');
+                $('#checkout-form-msg').html(data.message);
+                $('#checkout-form input[type=submit]').removeAttr('disabled');
+            }
 
-      if('error' == data.result)
-      {
-        $('#checkout-form-msg').css('visibility','visible').hide().fadeIn().removeClass('hidden').addClass('alert-danger');
-        $('#checkout-form-msg').html(data.msg[0]);
-        $('#checkout-form input[type=submit]').removeAttr('disabled');
-      }
+        },
+        complete: function (data) {
+            $('#checkout-form input[type=submit]').removeAttr('disabled');
+        }
+    });
 
-    }
-  });
-
-return false;
+    return false;
 });
 
 
