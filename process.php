@@ -32,7 +32,7 @@ if (isset($_POST['form']) && $_POST['form'] == 'contactus') {
     $mail->isHTML(true);
     $mail->Subject = 'Contact us';
 
-    $loader = new Twig_Loader_Filesystem(__DIR__.'email/');
+    $loader = new Twig_Loader_Filesystem(__DIR__.'/email/');
     $twig = new Twig_Environment($loader);
 
     $mail->Body = $twig->render('email_contactus.tpl', ['data' => $data]);
@@ -78,7 +78,7 @@ if (isset($_POST['form']) && $_POST['form'] == 'checkout') {
     $mail->isHTML(true);
     $mail->Subject = 'Car Reservation';
 
-    $loader = new Twig_Loader_Filesystem(__DIR__.'email/');
+    $loader = new Twig_Loader_Filesystem(__DIR__.'/email/');
     $twig = new Twig_Environment($loader);
 
     $mail->Body = $twig->render('email_reservation.tpl', ['data' => $data]);
