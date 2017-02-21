@@ -1,5 +1,7 @@
 <?php
 
+define('EMAIL_ADDRESS', 'jambik@gmail.com');
+
 require __DIR__.'/vendor/autoload.php';
 
 $response = null;
@@ -25,13 +27,9 @@ if (isset($_POST['form']) && $_POST['form'] == 'contactus') {
     }
 
     $mail = new PHPMailer();
-
-    $mail->setFrom('from@example.com', 'Mailer');
-    $mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+    $mail->addAddress(EMAIL_ADDRESS);
     $mail->CharSet = 'utf-8';
-
     $mail->isHTML(true);                                  // Set email format to HTML
-
     $mail->Subject = 'Contact us';
 
     $loader = new Twig_Loader_Filesystem('/');
@@ -75,13 +73,9 @@ if (isset($_POST['form']) && $_POST['form'] == 'checkout') {
     }
 
     $mail = new PHPMailer();
-
-    $mail->setFrom('from@example.com', 'Mailer');
-    $mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+    $mail->addAddress(EMAIL_ADDRESS);
     $mail->CharSet = 'utf-8';
-
-    $mail->isHTML(true);                                  // Set email format to HTML
-
+    $mail->isHTML(true);
     $mail->Subject = 'Car Reservation';
 
     $loader = new Twig_Loader_Filesystem('/');
