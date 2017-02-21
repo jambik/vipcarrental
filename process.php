@@ -36,7 +36,7 @@ if (isset($_POST['form']) && $_POST['form'] == 'contactus') {
     $loader = new Twig_Loader_Filesystem(__DIR__.'/email/');
     $twig = new Twig_Environment($loader);
 
-    $mail->Body = $twig->render('email_contactus.tpl', ['data' => $data]);
+    $mail->Body = $twig->render('contactus.tpl', ['data' => $data]);
 
     if ( ! $errors) {
         if (!$mail->send()) {
@@ -83,7 +83,7 @@ if (isset($_POST['form']) && $_POST['form'] == 'checkout') {
     $loader = new Twig_Loader_Filesystem(__DIR__.'/email/');
     $twig = new Twig_Environment($loader);
 
-    $mail->Body = $twig->render('email_reservation.tpl', ['data' => $data]);
+    $mail->Body = $twig->render('reservation.tpl', ['data' => $data]);
 
     if ( ! $errors) {
         if (!$mail->send()) {
