@@ -253,8 +253,8 @@ header.large .brand {
 }
 #teaser .reservation-form-shadow {
   height: 480px;
-  background-color: #fff;
-  box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 7px 0 15px -4px rgba(0, 0, 0, 0.3), -7px 0 15px -4px rgba(0, 0, 0, 0.3);
+  background-color: #ddd;
+  box-shadow: 0 9px 0px 0px #ddd, 0 -9px 0px 0px #ddd, 7px 0 15px -4px rgba(0, 0, 0, 0.3), -7px 0 15px -4px rgba(0, 0, 0, 0.3);
 }
 #teaser form {
   padding: 34px;
@@ -323,7 +323,7 @@ header.large .brand {
   font-size: 16px;
   padding-left: 15px;
   box-shadow: none;
-  background: none;
+  background: #fff;
   -webkit-appearance: none;
 }
 #teaser form .input-group-addon {
