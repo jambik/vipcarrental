@@ -77,30 +77,30 @@ body {
 /* Label
 --------------------------------------------*/
 .label-default {
-  background-color: #ffbf00;
+  background-color: #333;
   border-radius: 0;
 }
 /* Tooltip
 --------------------------------------------*/
 .tooltip .tooltip-inner {
-  background-color: #ffbf00;
+  background-color: #333;
   padding: 5px 10px;
   font-size: 18px;
 }
 .tooltip .tooltip-arrow {
-  border-top-color: #ffbf00 !important;
+  border-top-color: #333 !important;
 }
 .my-tooltip {
-  border-bottom: 1px dotted #ffbf00;
-  color: #ffbf00;
+  border-bottom: 1px dotted #333;
+  color: #333;
 }
 /* Links
 --------------------------------------------*/
 a {
-  color: #ffbf00;
+  color: #337ab7;
 }
 a:hover {
-  color: #ffbf00;
+  color: #559cd9;
   text-decoration: none;
 }
 /* Scroll to Top Button 
@@ -140,7 +140,7 @@ header .header-info .contact {
   margin-top: 10px;
 }
 header .header-info .language-switch {
-  background-color: #ffbf00;
+  background-color: #333;
   margin-left: 24px;
 }
 header .header-info .language-switch a {
@@ -252,9 +252,7 @@ header.large .brand {
 #teaser {
   height: 600px;
   padding: 60px 0;
-  background-color: #ffbf00;
-  background: linear-gradient(to bottom, #ffbf00 0%, #fcd45f 50%, #ffbf00 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@mainColor', endColorstr='@mainColor', GradientType=0);
+  background: #000 url('../img/sparkle-bg.jpg') center center no-repeat;
 }
 #teaser .reservation-form-shadow {
   height: 480px;
@@ -269,16 +267,16 @@ header.large .brand {
   padding: 10px 15px;
 }
 #teaser form ::-webkit-input-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 #teaser form :-moz-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 #teaser form ::-moz-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 #teaser form :-ms-input-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 #teaser form .styled-select-car {
   border: 2px solid #efe9e9;
@@ -324,7 +322,7 @@ header.large .brand {
 }
 #teaser form .input-group input {
   border-radius: 0;
-  color: #ffbf00;
+  color: #333;
   font-size: 16px;
   padding-left: 15px;
   box-shadow: none;
@@ -384,11 +382,11 @@ header.large .brand {
   -webkit-appearance: none;
   padding: 10px 10px;
   height: 39px;
-  color: #ffbf00;
+  color: #333;
 }
 #teaser form .submit {
   width: 100%;
-  background-color: #ffbf00;
+  background-color: #333;
   color: #fff;
   border: none;
   border-radius: 0;
@@ -454,7 +452,7 @@ header.large .brand {
   height: 0;
   border-left: 37px solid transparent;
   border-right: 37px solid transparent;
-  border-top: 37px solid #ffbf00;
+  border-top: 37px solid #333;
   margin: 0 auto;
 }
 /* Teaser Blog
@@ -462,7 +460,7 @@ header.large .brand {
 #teaser-blog {
   height: 145px;
   padding: 60px 0;
-  background-color: #ffbf00;
+  background-color: #333;
 }
 #teaser-blog .title {
   color: #fff;
@@ -510,7 +508,7 @@ header.large .brand {
 }
 .blog-posts .blog-post blockquote {
   margin: 35px 27px;
-  border-left: 6px solid #ffbf00;
+  border-left: 6px solid #333;
   font-size: 16px;
   line-height: 1.7;
   font-style: italic;
@@ -526,7 +524,7 @@ header.large .brand {
 }
 .single-post-tags li:first-of-type {
   font-weight: bold;
-  color: #ffbf00;
+  color: #333;
 }
 .single-post-tags li a {
   color: #716d6e;
@@ -536,7 +534,7 @@ header.large .brand {
   float: left;
   width: 130px;
   padding-bottom: 2px;
-  border-bottom: 7px solid #ffbf00;
+  border-bottom: 7px solid #333;
 }
 .author-post .author-content {
   margin-left: 155px;
@@ -556,7 +554,7 @@ header.large .brand {
 }
 .blog-posts .blog-post .post-attachment {
   padding-bottom: 2px;
-  border-bottom: 10px solid #ffbf00;
+  border-bottom: 10px solid #333;
 }
 .blog-posts .blog-post .post-content-text {
   margin-top: 8px;
@@ -593,7 +591,7 @@ header.large .brand {
 .blog-posts .pagination-list li {
   display: inline-block;
   padding: 0 5px;
-  color: #ffbf00;
+  color: #333;
 }
 .blog-posts .pagination-list li a {
   color: #716d6e;
@@ -623,7 +621,7 @@ header.large .brand {
   padding: 0;
 }
 .comment-section .comment-img {
-  border-bottom: 7px solid #ffbf00;
+  border-bottom: 7px solid #333;
   display: inline-block;
   float: left;
   padding-bottom: 2px;
@@ -684,7 +682,7 @@ header.large .brand {
   font-size: 14px !important;
 }
 .comment-section .comment-respond form .submit {
-  background-color: #ffbf00;
+  background-color: #333;
   color: #fff;
   border: none;
   border-radius: 0;
@@ -723,7 +721,7 @@ header.large .brand {
   transition: background 0.4s ease-in-out;
 }
 .blog-posts .sidebar .widget ul li i {
-  color: #ffbf00;
+  color: #333;
   margin: 0 7px;
 }
 .blog-posts .sidebar .widget ul li a {
@@ -737,7 +735,7 @@ header.large .brand {
 }
 .blog-posts .sidebar .widget .tagcloud a {
   color: #fff;
-  background-color: #ffbf00;
+  background-color: #333;
   padding: 6px 20px;
   display: inline-block;
   margin: 4px 4px 0 0;
@@ -751,20 +749,20 @@ header.large .brand {
   clear: both;
 }
 .blog-posts .sidebar .search-widget form ::-webkit-input-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 .blog-posts .sidebar .search-widget form :-moz-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 .blog-posts .sidebar .search-widget form ::-moz-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 .blog-posts .sidebar .search-widget form :-ms-input-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 .blog-posts .sidebar .search-widget form .input-group input {
   border-radius: 0;
-  color: #ffbf00;
+  color: #333;
   font-size: 16px;
   padding-left: 15px;
   box-shadow: none;
@@ -799,7 +797,7 @@ header.large .brand {
   padding-bottom: 45px;
 }
 .blog-posts.error-page .container {
-  border-bottom: 10px solid #ffbf00;
+  border-bottom: 10px solid #333;
 }
 .blog-posts.error-page h2 {
   font-size: 24px;
@@ -832,20 +830,20 @@ header.large .brand {
   margin-top: 20px;
 }
 .blog-posts.error-page form ::-webkit-input-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 .blog-posts.error-page form :-moz-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 .blog-posts.error-page form ::-moz-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 .blog-posts.error-page form :-ms-input-placeholder {
-  color: #ffbf00 !important;
+  color: #333 !important;
 }
 .blog-posts.error-page form .input-group input {
   border-radius: 0;
-  color: #ffbf00;
+  color: #333;
   font-size: 16px;
   padding-left: 15px;
   box-shadow: none;
@@ -897,7 +895,7 @@ header.large .brand {
   height: 4px;
   width: 135px;
   display: block;
-  background-color: #ffbf00;
+  background-color: #333;
   margin: 0 auto;
 }
 #services .service-box {
@@ -908,7 +906,7 @@ header.large .brand {
 #services .service-box .service-icon {
   height: 43px;
   width: 43px;
-  background-color: #ffbf00;
+  background-color: #444;
   color: #fff;
   text-align: center;
   line-height: 40px;
@@ -932,7 +930,7 @@ header.large .brand {
 /* Newsletter
 --------------------------------------------*/
 #newsletter {
-  background-color: #ffbf00;
+  background-color: #333;
   margin-top: 90px;
   padding: 90px 0;
   position: relative;
@@ -997,7 +995,7 @@ header.large .brand {
 #newsletter .social-icons ul li a {
   height: 55px;
   width: 65px;
-  background-color: #ffbf00;
+  background-color: #333;
   display: block;
   margin-left: 10px;
   text-align: center;
@@ -1106,11 +1104,11 @@ header.large .brand {
   background-color: #d1cece;
 }
 #vehicles .vehicle-nav li.active {
-  background-color: rgba(255, 191, 0, 0.4);
+  background-color: rgba(80, 80, 80, 0.3);
   font-weight: bold;
 }
 #vehicles .vehicle-nav li.active span {
-  border-left-color: rgba(255, 191, 0, 0.4);
+  border-left-color: rgba(80, 80, 80, 0.3);
 }
 #vehicles .vehicle-nav li a {
   font-size: 18px;
@@ -1154,7 +1152,7 @@ header.large .brand {
   display: inline-block;
 }
 #vehicles .vehicle-price {
-  background-color: rgba(255, 191, 0, 0.4);
+  background-color: rgba(80, 80, 80, 0.2);
   height: 53px;
   line-height: 53px;
   padding: 0 10px;
@@ -1165,9 +1163,13 @@ header.large .brand {
   font-weight: normal;
   font-size: 18px;
 }
-.tr-warranty td { background: #ffc007; font-weight: bolder; font-size: 20px; }
+.tr-warranty td {
+  background: #eee;
+  font-weight: bolder;
+  font-size: 20px;
+}
 #vehicles .reserve-button {
-  background-color: #ffbf00;
+  background-color: #333;
   color: #fff;
   display: block;
   height: 50px;
@@ -1207,7 +1209,7 @@ header.large .brand {
 #reviews .author {
   font-size: 18px;
   font-weight: 900;
-  color: #ffbf00;
+  color: #333;
   margin-top: 10px;
 }
 #reviews .carousel-indicators {
@@ -1251,7 +1253,7 @@ header.large .brand {
   position: relative;
 }
 #locations .location-select {
-  background-color: #ffbf00;
+  background-color: #333;
   height: 93px;
 }
 #locations .location-select h2 {
@@ -1292,7 +1294,7 @@ header.large .brand {
   top: -70px;
 }
 #locations .map h2 {
-  color: #ffbf00;
+  color: #333;
   padding: 0 10px;
   margin-bottom: 4px;
 }
@@ -1305,7 +1307,7 @@ header.large .brand {
   height: 0;
   border-left: 37px solid transparent;
   border-right: 37px solid transparent;
-  border-top: 37px solid #ffbf00;
+  border-top: 37px solid #333;
   margin: 0 auto;
 }
 /* Information
@@ -1344,7 +1346,7 @@ header.large .brand {
 #information .btn {
   font-size: 24px;
   font-weight: 900;
-  background-color: #ffbf00;
+  background-color: #333;
   color: #fff;
   border-radius: 0;
   border: none;
@@ -1361,7 +1363,7 @@ header.large .brand {
   background-color: #716d6e;
 }
 #information .btn-gray:hover {
-  background-color: #ffbf00;
+  background-color: #333;
 }
 #information .video {
   position: relative;
@@ -1401,7 +1403,7 @@ header.large .brand {
   height: 4px;
   width: 135px;
   display: block;
-  background-color: #ffbf00;
+  background-color: #333;
   margin: 0 auto;
 }
 #partners p {
@@ -1430,7 +1432,7 @@ header.large .brand {
   font-weight: 900;
 }
 #contact .contact-info .highlight {
-  color: #ffbf00;
+  color: #333;
 }
 #contact form .form-group {
   margin-bottom: 20px;
@@ -1484,7 +1486,7 @@ header.large .brand {
 #contact form .submit-message {
   font-size: 24px;
   font-weight: 900;
-  background-color: #ffbf00;
+  background-color: #333;
   color: #fff;
   border: none;
   line-height: 47px;
@@ -1507,10 +1509,10 @@ header.large .brand {
 }
 #contact .contact-box .highlight {
   font-weight: bold;
-  color: #ffbf00;
+  color: #333;
 }
 #contact .contact-box img {
-  /*border: 1px solid #ffbf00;*/
+  /*border: 1px solid #333;*/
   float: left;
   margin-right: 20px;
 }
@@ -1519,7 +1521,7 @@ header.large .brand {
   font-weight: bold;
 }
 #contact .contact-box-border {
-  background-color: #ffbf00;
+  background-color: #333;
   height: 10px;
   margin-top: 1px;
   margin-bottom: 8px;
@@ -1590,7 +1592,7 @@ footer .footer-nav li a {
 }
 #checkoutModal .modal-header {
   color: #fff;
-  background-color: #ffbf00;
+  background-color: #333;
   border-bottom: none;
 }
 #checkoutModal .modal-title {
@@ -1617,18 +1619,18 @@ footer .footer-nav li a {
 #checkoutModal .modal-body h3 {
   margin: 0;
   font-size: 18px;
-  color: #ffbf00;
+  color: #333;
   font-weight: bold;
   margin-bottom: 25px;
 }
 #checkoutModal .checkout-info-box {
-  background-color: rgba(255, 191, 0, 0.2);
+  background: #eee;
   padding: 20px 30px;
 }
 #checkoutModal .checkout-info-box h3 {
   margin: 0;
   margin-bottom: 15px;
-  color: #716d6e;
+  color: #333;
 }
 #checkoutModal .checkout-info-box h3 i {
   font-size: 23px;
@@ -1802,7 +1804,7 @@ footer .footer-nav li a {
 #checkoutModal .modal-footer .btn {
   font-size: 24px;
   font-weight: 900;
-  background-color: #ffbf00;
+  background-color: #333;
   color: #fff;
   border-radius: 0;
   height: 47px;
@@ -1817,10 +1819,10 @@ footer .footer-nav li a {
   background-color: #fff;
 }
 #checkoutModal .modal-footer .btn-yellow {
-  border-color: #ffd992;
+  border-color: #333;
 }
 #checkoutModal .modal-footer .btn-yellow button {
-  background-color: #ffbf00;
+  background-color: #333;
 }
 #checkoutModal .modal-footer .btn-gray {
   border-color: #b8b6b6;
@@ -2087,7 +2089,7 @@ footer .footer-nav li a {
     position: absolute;
     width: 100%;
     margin: 15px 0 0 0;
-    border: 14px solid #ffbf00;
+    border: 14px solid #333;
     border-top: none;
     box-shadow: 0px 4px 1px -1px rgba(50, 50, 50, 0.32);
   }
