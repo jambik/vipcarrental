@@ -1656,6 +1656,11 @@ footer .footer-nav li a {
 #checkoutModal .vehicle-info .vehicle-image {
   width: 90%;
 }
+#checkoutModal #rent-price {
+  font-size: 18px;
+  font-weight: bolder;
+  text-align: center;
+}
 #checkoutModal .info-box {
   margin-bottom: 25px;
 }
@@ -1775,6 +1780,11 @@ footer .footer-nav li a {
   float: left;
   width: 335px;
   margin-left: 7px;
+}
+#checkoutModal .total-price {
+  text-align: right;
+  margin: 10px 15px 15px 0;
+  font-size: 24px;
 }
 #checkoutModal .newsletter {
   padding: 0 30px;
