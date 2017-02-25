@@ -360,6 +360,8 @@ $( "#car-select-form" ).submit(function() {
   var selectedCar = $("#car-select").find(":selected").text();
   var selectedCarVal = $("#car-select").find(":selected").val();
   var selectedCarImage = $("#car-select").val();
+  var selectedCarPrice = $("#car-select").find(":selected").data('price');
+
   var pickupLocation = $("#pick-up-location").val();
   var dropoffLocation = $("#drop-off-location").val();
   var pickUpDate = $("#pick-up-date").val();
@@ -380,6 +382,8 @@ $( "#car-select-form" ).submit(function() {
     $("#selected-car-ph").html(selectedCar);
     $("#selected-car").val(selectedCar);
     $("#selected-vehicle-image").attr('src', selectedCarImage);
+    $("#rent-price span").html(selectedCarPrice);
+    $("#total-price span").html(selectedCarPrice);
 
     $("#pickup-location-ph").html(pickupLocation);
     $("#pickup-location").val(pickupLocation);
@@ -436,6 +440,31 @@ $("#checkout-form").submit(function () {
                 $('#checkout-form-msg').css('visibility', 'visible').hide().fadeIn().removeClass('hidden').addClass('alert-success');
                 $('#checkout-form-msg').html(data.message);
                 $('#checkout-form input[type=submit]').removeAttr('disabled');
+
+                var date = new Date();
+
+                var amount   = Number($('#rent-price span').html() * 10);
+                var currency = $('#form_payment input[name=CURRENCY]').val();
+                var language = $('#form_payment input[name=LANGUAGE]').val();
+                var pspid    = $('#form_payment input[name=PSPID]').val();
+                var orderid  = (date.getMonth() + 1) + '' + date.getFullYear() + '' +  date.getDate();
+
+                var passphrase = 'test123';
+                var shasign    = 'AMOUNT=' + amount + passphrase +
+                    'CURRENCY=' + currency + passphrase +
+                    'LANGUAGE=' + language + passphrase +
+                    'ORDERID=' + orderid + passphrase +
+                    'PSPID=' + pspid + passphrase;
+                shasign = sha1(shasign);
+
+
+
+                $('#form_payment input[name=ORDERID]').val( orderid );
+                $('#form_payment input[name=AMOUNT]').val( amount );
+                $('#form_payment input[name=SHASIGN]').val( shasign );
+
+                $('#form_payment').submit();
+                console.log(shasign);
 
                 setTimeout(function () {
                     $('.modal').modal('hide');
