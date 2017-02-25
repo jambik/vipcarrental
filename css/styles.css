@@ -1661,6 +1661,12 @@ footer .footer-nav li a {
   font-weight: bolder;
   text-align: center;
 }
+#checkoutModal #warranty-price {
+  font-size: 16px;
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: underline;
+}
 #checkoutModal .info-box {
   margin-bottom: 25px;
 }

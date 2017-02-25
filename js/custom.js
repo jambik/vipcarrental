@@ -361,6 +361,7 @@ $( "#car-select-form" ).submit(function() {
   var selectedCarVal = $("#car-select").find(":selected").val();
   var selectedCarImage = $("#car-select").val();
   var selectedCarPrice = $("#car-select").find(":selected").data('price');
+  var selectedCarWarranty = $("#car-select").find(":selected").data('warranty');
 
   var pickupLocation = $("#pick-up-location").val();
   var dropoffLocation = $("#drop-off-location").val();
@@ -383,7 +384,8 @@ $( "#car-select-form" ).submit(function() {
     $("#selected-car").val(selectedCar);
     $("#selected-vehicle-image").attr('src', selectedCarImage);
     $("#rent-price span").html(selectedCarPrice);
-    $("#total-price span").html(selectedCarPrice);
+    $("#total-price span").html(selectedCarWarranty);
+    $("#warranty-price span").html(selectedCarWarranty);
 
     $("#pickup-location-ph").html(pickupLocation);
     $("#pickup-location").val(pickupLocation);
@@ -443,11 +445,13 @@ $("#checkout-form").submit(function () {
 
                 var date = new Date();
 
-                var amount   = Number($('#rent-price span').html() * 10);
+                var price    = Number($('#rent-price span').html());
+                var warranty = Number($('#warranty-price span').html());
+                var amount   = warranty * 100;
                 var currency = $('#form_payment input[name=CURRENCY]').val();
                 var language = $('#form_payment input[name=LANGUAGE]').val();
                 var pspid    = $('#form_payment input[name=PSPID]').val();
-                var orderid  = (date.getMonth() + 1) + '' + date.getFullYear() + '' +  date.getDate();
+                var orderid  = (date.getMonth() + 1) + '' + date.getFullYear() + date.getDate() + date.getMinutes() + date.getHours() + date.getSeconds();
 
                 var passphrase = 'test123';
                 var shasign    = 'AMOUNT=' + amount + passphrase +
@@ -456,8 +460,6 @@ $("#checkout-form").submit(function () {
                     'ORDERID=' + orderid + passphrase +
                     'PSPID=' + pspid + passphrase;
                 shasign = sha1(shasign);
-
-
 
                 $('#form_payment input[name=ORDERID]').val( orderid );
                 $('#form_payment input[name=AMOUNT]').val( amount );
