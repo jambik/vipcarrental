@@ -1,6 +1,6 @@
 <?php
 
-define('EMAIL_ADDRESS', 'jambik@gmail.com');
+define('EMAIL_ADDRESS', 'vipcarrentalbiz@gmail.com');
 
 require __DIR__.'/vendor/autoload.php';
 
@@ -62,6 +62,7 @@ if (isset($_POST['form']) && $_POST['form'] == 'checkout') {
     $data['phone'] = $_POST['phone-number'];
     $data['age'] = $_POST['age'];
     $data['email'] = $_POST['email-address'];
+    $data['country'] = $_POST['country'];
     $data['address'] = $_POST['address'];
     $data['city'] = $_POST['city'];
     $data['zip'] = $_POST['zip-code'];

@@ -466,7 +466,8 @@ $("#checkout-form").submit(function () {
                 $('#form_payment input[name=SHASIGN]').val( shasign );
 
                 $('#form_payment').submit();
-                console.log(shasign);
+                // console.log(amount);
+                // console.log(shasign);
 
                 setTimeout(function () {
                     $('.modal').modal('hide');

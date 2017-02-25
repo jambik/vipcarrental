@@ -1726,6 +1726,31 @@ footer .footer-nav li a {
   padding: 9px 10px;
   height: 39px;
 }
+#checkoutModal form .styled-select-country {
+  border: 2px solid #efe9e9;
+  height: 43px;
+  position: relative;
+}
+#checkoutModal form .styled-select-country:after {
+  content: '';
+  background: #ffffff url('../img/dropdown-icon.png') no-repeat 5px 18px;
+  right: 0px;
+  top: 0px;
+  width: 29px;
+  height: 39px;
+  position: absolute;
+  pointer-events: none;
+}
+#checkoutModal form .styled-select-country select {
+  border: none;
+  font-size: 16px;
+  width: 100%;
+  background-image: none;
+  background: #fff;
+  -webkit-appearance: none;
+  padding: 9px 10px;
+  height: 39px;
+}
 #checkoutModal form input {
   background-color: #dbdbdb;
   height: 45px;
@@ -1775,6 +1800,16 @@ footer .footer-nav li a {
 }
 #checkoutModal .checkout-address-info {
   padding: 0 30px;
+}
+#checkoutModal .checkout-address-info .country {
+  float: left;
+  width: 335px;
+  margin-right: 7px;
+}
+#checkoutModal .checkout-address-info .address {
+  float: left;
+  width: 335px;
+  margin-left: 7px;
 }
 #checkoutModal .checkout-address-info .city {
   float: left;

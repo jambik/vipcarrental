@@ -18,6 +18,7 @@
 {% if data.age %}<div>Age: {{ data.age }}</div>{% endif %}
 {% if data.phone %}<div>Telephone: {{ data.phone }}</div>{% endif %}
 {% if data.email %}<div>Email: {{ data.email }}</div>{% endif %}
+{% if data.country %}<div>Country: {{ data.country }}</div>{% endif %}
 {% if data.address %}<div>Address: {{ data.address }}</div>{% endif %}
 {% if data.city %}<div>City: {{ data.city }}</div>{% endif %}
 {% if data.zip %}<div>Zip-code: {{ data.zip }}</div>{% endif %}
