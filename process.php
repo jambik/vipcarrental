@@ -31,10 +31,10 @@ if (isset($_POST['form']) && $_POST['form'] == 'contactus') {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = 465;
     $mail->Username = 'vipcarrentalbiz@gmail.com';
     $mail->Password = 'dfvne1234f%';
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
 
     $mail->setFrom('vipcarrentalbiz@gmail.com', 'Vip Car|Rental');
     $mail->addAddress(EMAIL_ADDRESS);
@@ -86,14 +86,13 @@ if (isset($_POST['form']) && $_POST['form'] == 'checkout') {
     }
 
     $mail = new PHPMailer();
-
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = 465;
     $mail->Username = 'vipcarrentalbiz@gmail.com';
     $mail->Password = 'dfvne1234f%';
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
 
     $mail->setFrom('vipcarrentalbiz@gmail.com', 'Vip Car|Rental');
     $mail->addAddress(EMAIL_ADDRESS);
