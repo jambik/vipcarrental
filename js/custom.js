@@ -431,6 +431,10 @@ $("#checkout-form").submit(function () {
 
     $('#checkout-form input[type=submit]').attr('disabled', 'disabled');
 
+    var date = new Date();
+    var orderid  = (date.getMonth() + 1) + '' + date.getFullYear() + date.getDate() + date.getMinutes() + date.getHours() + date.getSeconds();
+    $('#checkout-form input[name=orderid]').val( orderid );
+
     $.ajax({
         type: "POST",
         url: "process.php",
@@ -451,7 +455,6 @@ $("#checkout-form").submit(function () {
                 var currency = $('#form_payment input[name=CURRENCY]').val();
                 var language = $('#form_payment input[name=LANGUAGE]').val();
                 var pspid    = $('#form_payment input[name=PSPID]').val();
-                var orderid  = (date.getMonth() + 1) + '' + date.getFullYear() + date.getDate() + date.getMinutes() + date.getHours() + date.getSeconds();
 
                 var passphrase = 'test123';
                 var shasign    = 'AMOUNT=' + amount + passphrase +
@@ -466,8 +469,8 @@ $("#checkout-form").submit(function () {
                 $('#form_payment input[name=SHASIGN]').val( shasign );
 
                 $('#form_payment').submit();
-                // console.log(amount);
-                // console.log(shasign);
+                console.log(amount);
+                console.log(shasign);
 
                 setTimeout(function () {
                     $('.modal').modal('hide');
