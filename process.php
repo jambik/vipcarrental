@@ -1,6 +1,6 @@
 <?php
 
-define('EMAIL_ADDRESS', 'jambik@gmail.com');
+define('EMAIL_ADDRESS', 'vipcarrentalbiz@gmail.com');
 
 require __DIR__.'/vendor/autoload.php';
 
