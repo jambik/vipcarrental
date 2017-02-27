@@ -1,3 +1,8 @@
+<?php
+
+$cars = json_decode(file_get_contents('cars.json'));
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +23,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
     <!-- Plugin Styles -->
-    <link href="css/datepicker.css" rel="stylesheet">
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
     <!-- Main Styles -->
     <link href="css/styles.css" rel="stylesheet">
@@ -42,7 +47,7 @@
         <div class="col-md-7">
             <div class="pull-right">
                 <div class="header-info pull-right">
-                    <div class="contact pull-left">CONTACT: +447823683699</div>
+                    <div class="contact pull-left">&nbsp;</div>
                 </div>
             </div>
 
@@ -66,9 +71,7 @@
                         <!-- Nav-Links start -->
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="#top" class="scroll-to">Home</a></li>
-                            <li><a href="#services" class="scroll-to">Services</a></li>
                             <li><a href="#vehicles" class="scroll-to">Vehicle Models</a></li>
-                            <!--<li><a href="#reviews" class="scroll-to">Reviews</a></li>-->
                             <li><a href="#locations" class="scroll-to">Locations</a></li>
                             <li><a href="#contact" class="scroll-to">Contact</a></li>
                         </ul>
@@ -116,18 +119,18 @@
                         <div class="styled-select-car">
                             <select name="car-select" id="car-select">
                                 <option value="">Select your car type</option>
-                                <option value="img/vehicle1.jpg" data-price="3600" data-warranty="9000">BMW X5</option>
-                                <option value="img/vehicle2.jpg" data-price="3600" data-warranty="9000">Mercedes-Benz S350</option>
-                                <option value="img/vehicle3.jpg" data-price="7200" data-warranty="18000">AMG G Brabus</option>
-                                <option value="img/vehicle4.jpg" data-price="7200" data-warranty="18000">Audi R8 v12</option>
-                                <option value="img/vehicle5.jpg" data-price="7200" data-warranty="18000">Maserati Quattroporte</option>
-                                <option value="img/vehicle6.jpg" data-price="7200" data-warranty="18000">Maserati GranTurismo</option>
-                                <option value="img/vehicle7.jpg" data-price="9200" data-warranty="23000">Bentley Continental</option>
-                                <option value="img/vehicle8.jpg" data-price="9200" data-warranty="23000">Bentley Flying Spur</option>
-                                <option value="img/vehicle9.jpg" data-price="7200" data-warranty="18000">Lamborghini Gallardo</option>
-                                <option value="img/vehicle10.jpg" data-price="7200" data-warranty="18000">Lamborghini Gallardo Conv</option>
-                                <option value="img/vehicle11.jpg" data-price="10000" data-warranty="25000">Rolls Royce Ghost</option>
-                                <option value="img/vehicle12.jpg" data-price="12000" data-warranty="30000">Rolls Royce Phantom</option>
+                                <option value="img/vehicle1.jpg" data-price="3600" data-warranty="9000" data-available="<?=$cars->{1}->date_expired && strtotime($cars->{1}->date_expired) > time() ? $cars->{1}->date_expired : ''?>">BMW X5<?=$cars->{1}->date_expired && strtotime($cars->{1}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{1}->date_expired)).')' : ''?></option>
+                                <option value="img/vehicle2.jpg" data-price="3600" data-warranty="9000" data-available="<?=$cars->{2}->date_expired && strtotime($cars->{2}->date_expired) > time() ? $cars->{2}->date_expired : ''?>">Mercedes-Benz S350<?=$cars->{2}->date_expired && strtotime($cars->{2}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{2}->date_expired)).')' : ''?></option>
+                                <option value="img/vehicle3.jpg" data-price="7200" data-warranty="18000" data-available="<?=$cars->{3}->date_expired && strtotime($cars->{3}->date_expired) > time() ? $cars->{3}->date_expired : ''?>">AMG G Brabus<?=$cars->{3}->date_expired && strtotime($cars->{3}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{3}->date_expired)).')' : ''?></option>
+                                <option value="img/vehicle4.jpg" data-price="7200" data-warranty="18000" data-available="<?=$cars->{4}->date_expired && strtotime($cars->{4}->date_expired) > time() ? $cars->{4}->date_expired : ''?>">Audi R8 v12<?=$cars->{4}->date_expired && strtotime($cars->{4}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{4}->date_expired)).')' : ''?></option>
+                                <option value="img/vehicle5.jpg" data-price="7200" data-warranty="18000" data-available="<?=$cars->{5}->date_expired && strtotime($cars->{5}->date_expired) > time() ? $cars->{5}->date_expired : ''?>">Maserati Quattroporte<?=$cars->{5}->date_expired && strtotime($cars->{5}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{5}->date_expired)).')' : ''?></option>
+                                <option value="img/vehicle6.jpg" data-price="7200" data-warranty="18000" data-available="<?=$cars->{6}->date_expired && strtotime($cars->{6}->date_expired) > time() ? $cars->{6}->date_expired : ''?>">Maserati GranTurismo<?=$cars->{6}->date_expired && strtotime($cars->{6}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{6}->date_expired)).')' : ''?></option>
+                                <option value="img/vehicle7.jpg" data-price="9200" data-warranty="23000" data-available="<?=$cars->{7}->date_expired && strtotime($cars->{7}->date_expired) > time() ? $cars->{7}->date_expired : ''?>">Bentley Continental<?=$cars->{7}->date_expired && strtotime($cars->{7}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{7}->date_expired)).')' : ''?></option>
+                                <option value="img/vehicle8.jpg" data-price="9200" data-warranty="23000" data-available="<?=$cars->{8}->date_expired && strtotime($cars->{8}->date_expired) > time() ? $cars->{8}->date_expired : ''?>">Bentley Flying Spur<?=$cars->{8}->date_expired && strtotime($cars->{8}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{8}->date_expired)).')' : ''?></option>
+                                <option value="img/vehicle9.jpg" data-price="7200" data-warranty="18000" data-available="<?=$cars->{9}->date_expired && strtotime($cars->{9}->date_expired) > time() ? $cars->{9}->date_expired : ''?>">Lamborghini Gallardo<?=$cars->{9}->date_expired && strtotime($cars->{9}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{9}->date_expired)).')' : ''?></option>
+                                <option value="img/vehicle10.jpg" data-price="7200" data-warranty="18000" data-available="<?=$cars->{10}->date_expired && strtotime($cars->{10}->date_expired) > time() ? $cars->{10}->date_expired : ''?>">Lamborghini Gallardo Conv<?=$cars->{10}->date_expired && strtotime($cars->{10}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{10}->date_expired)).')' : ''?></option>
+                                <option value="img/vehicle11.jpg" data-price="10000" data-warranty="25000" data-available="<?=$cars->{11}->date_expired && strtotime($cars->{11}->date_expired) > time() ? $cars->{11}->date_expired : ''?>">Rolls Royce Ghost<?=$cars->{11}->date_expired && strtotime($cars->{11}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{11}->date_expired)).')' : ''?></option>
+                                <option value="img/vehicle12.jpg" data-price="12000" data-warranty="30000" data-available="<?=$cars->{12}->date_expired && strtotime($cars->{12}->date_expired) > time() ? $cars->{12}->date_expired : ''?>">Rolls Royce Phantom<?=$cars->{12}->date_expired && strtotime($cars->{12}->date_expired) > time() ? ' (from '.date("m/d/Y", strtotime($cars->{12}->date_expired)).')' : ''?></option>
                             </select>
                         </div>
                         <!-- Car select end -->
@@ -297,45 +300,6 @@
 
 
 
-<!-- Services start -->
-<section id="services" class="container">
-    <div class="row">
-        <div class="col-md-12 title">
-            <h2>Customer Services</h2>
-            <span class="underline">&nbsp;</span>
-        </div>
-
-        <!-- Service Box start -->
-        <div class="col-md-6">
-            <div class="service-box wow fadeInLeft" data-wow-offset="100">
-                <div class="service-icon">+</div>
-                <h3 class="service-title">Where to find us?</h3>
-                <div class="clearfix"></div>
-                <p class="service-content">
-                    Our address: Vip Car|Rental / UAE / Dubai / Sheikh Zayed Rd / Al Attar Tower
-                    <p><a href="#locations" class="scroll-to">[see on map]</a></p>
-                    <div>&nbsp;</div>
-                </p>
-            </div>
-        </div>
-        <!-- Service Box end -->
-
-        <!-- Service Box start -->
-        <div class="col-md-6">
-            <div class="service-box wow fadeInRight" data-wow-offset="100">
-                <div class="service-icon">+</div>
-                <h3 class="service-title">Phone Reservation</h3>
-                <div class="clearfix"></div>
-                <p class="service-content">To hire a car or get additional information about the company's services You can contact our managers by a single phone +447823683699. We are professionals that orientate you quickly and will offer you the best options for car rental.</p>
-            </div>
-        </div>
-        <!-- Service Box end -->
-
-    </div>
-</section>
-<!-- Services end -->
-
-
 <!-- Vehicles start -->
 <section id="vehicles" class="container">
     <div class="row">
@@ -405,8 +369,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                                $date = $cars->{1}->date_expired ? strtotime($cars->{1}->date_expired) : null;
+                                echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -449,8 +418,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                            $date = $cars->{2}->date_expired ? strtotime($cars->{2}->date_expired) : null;
+                            echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -494,8 +468,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                            $date = $cars->{3}->date_expired ? strtotime($cars->{3}->date_expired) : null;
+                            echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -538,8 +517,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                            $date = $cars->{4}->date_expired ? strtotime($cars->{4}->date_expired) : null;
+                            echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -582,8 +566,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                            $date = $cars->{5}->date_expired ? strtotime($cars->{5}->date_expired) : null;
+                            echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -626,8 +615,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                            $date = $cars->{6}->date_expired ? strtotime($cars->{6}->date_expired) : null;
+                            echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -670,8 +664,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                            $date = $cars->{7}->date_expired ? strtotime($cars->{7}->date_expired) : null;
+                            echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -714,8 +713,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                            $date = $cars->{8}->date_expired ? strtotime($cars->{8}->date_expired) : null;
+                            echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -758,8 +762,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                            $date = $cars->{9}->date_expired ? strtotime($cars->{9}->date_expired) : null;
+                            echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -802,8 +811,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                            $date = $cars->{10}->date_expired ? strtotime($cars->{10}->date_expired) : null;
+                            echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -846,8 +860,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                            $date = $cars->{11}->date_expired ? strtotime($cars->{11}->date_expired) : null;
+                            echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -890,8 +909,13 @@
                         <td>Automatic</td>
                     </tr>
                     <tr>
-                        <td>Air conditioning</td>
-                        <td>Yes</td>
+                        <td>Available</td>
+                        <td>
+                            <?php
+                            $date = $cars->{12}->date_expired ? strtotime($cars->{12}->date_expired) : null;
+                            echo $date && $date > time() ? 'from ' . date("jS F, Y", $date) : 'Yes';
+                            ?>
+                        </td>
                     </tr>
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
@@ -964,7 +988,7 @@
             <div class="contact-box">
                 <img src="img/contact-box-img1.png" alt="contact-img">
                 <!--<div class="contact-box-name">Sarah Connor</div>-->
-                <div class="contact-box-phon"><span class="highlight">Phone:</span> +447823683699</div>
+                <div class="contact-box-phon"><span class="highlight"></span> &nbsp;</div>
                 <div class="contact-box-email"><span class="highlight">Email:</span> vipcarrentalbiz@gmail.com</div>
                 <div class="clearfix"></div>
             </div>
@@ -1018,9 +1042,7 @@
             <div class="col-md-12 text-center">
                 <ul class="footer-nav">
                     <li><a class="scroll-to" href="#top">Home</a></li>
-                    <li><a class="scroll-to" href="#services">Service</a></li>
                     <li><a class="scroll-to" href="#vehicles">Vehicle Models</a></li>
-                    <!--<li><a class="scroll-to" href="#reviews">Reviews</a></li>-->
                     <li><a class="scroll-to" href="#locations">Locations</a></li>
                     <li><a class="scroll-to" href="#contact">Contact</a></li>
                 </ul>
@@ -1551,11 +1573,12 @@
 <script src="js/jquery-1.11.0.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 
+<script src="js/moment.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
 <script src="js/jquery.autocomplete.min.js"></script>
 <script src="js/jquery.placeholder.js"></script>
 <script src="js/locations-autocomplete.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en&amp;key=AIzaSyAau6IrQRAo4i8uT8aPexzKrVWzJgkwUJk"></script>
 <script src="js/gmap3.min.js"></script>
 <script src="js/sha1.js"></script>

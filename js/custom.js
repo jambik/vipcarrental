@@ -115,30 +115,50 @@ $(".vehicle-data-select").change(function(){
 
 // Initialize Datepicker
 //-------------------------------------------------------------------------------
-var nowTemp = new Date();
-var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+/*var nowTemp = new Date();
+ var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
-var checkin = $('#pick-up-date').datepicker({
-    onRender: function (date) {
-        return date.valueOf() < now.valueOf() ? 'disabled' : '';
-    }
-}).on('changeDate', function (ev) {
-    if (ev.date.valueOf() > checkout.date.valueOf()) {
-        var newDate = new Date(ev.date)
-        newDate.setDate(newDate.getDate() + 1);
-        checkout.setValue(newDate);
-    }
-    checkin.hide();
-    $('#drop-off-date')[0].focus();
-}).data('datepicker');
-var checkout = $('#drop-off-date').datepicker({
-    onRender: function (date) {
-        return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
-    }
-}).on('changeDate', function (ev) {
-    checkout.hide();
-}).data('datepicker');
+ var checkin = $('#pick-up-date').datepicker({
+ format: 'dd/mm/yyyy',
+ onRender: function (date) {
+ return date.valueOf() < now.valueOf() ? 'disabled' : '';
+ }
+ }).on('changeDate', function (ev) {
+ if (ev.date.valueOf() > checkout.date.valueOf()) {
+ var newDate = new Date(ev.date)
+ newDate.setDate(newDate.getDate() + 1);
+ checkout.setValue(newDate);
+ }
+ checkin.hide();
+ $('#drop-off-date')[0].focus();
+ }).data('datepicker');
+ var checkout = $('#drop-off-date').datepicker({
+ format: 'dd/mm/yyyy',
+ onRender: function (date) {
+ return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+ }
+ }).on('changeDate', function (ev) {
+ checkout.hide();
+ }).data('datepicker');*/
 
+// Initialize Datetimepicker
+//-------------------------------------------------------------------------------
+var checkin = $('#pick-up-date').datetimepicker({
+    format: 'MM/DD/YYYY',
+    minDate: moment(),
+});
+
+var checkout = $('#drop-off-date').datetimepicker({
+    format: 'MM/DD/YYYY',
+    maxDate: moment(),
+});
+
+$("#pick-up-date").on("dp.change", function (e) {
+    if (e.date) {
+        $('#drop-off-date').data("DateTimePicker").maxDate(moment(e.date).add(7, 'days'));
+        $('#drop-off-date').data("DateTimePicker").minDate(moment(e.date));
+    }
+});
 
 
 // Toggle Drop-Off Location
@@ -350,6 +370,20 @@ $("#contact-form").submit(function () {
     return false;
 });
 
+
+// Car Select
+$( "#car-select" ).change(function() {
+    var available = $("#car-select").find(":selected").data('available');
+    if (available) {
+        $('#pick-up-date').data("DateTimePicker").minDate(moment(available, 'MM/DD/YYYY'));
+        $('#drop-off-date').data("DateTimePicker").clear();
+        $('#pick-up-date').data("DateTimePicker").clear();
+    } else {
+        $('#pick-up-date').data("DateTimePicker").minDate(moment());
+        $('#drop-off-date').data("DateTimePicker").clear();
+        $('#pick-up-date').data("DateTimePicker").clear();
+    }
+});
 
 
 // Car Select Form

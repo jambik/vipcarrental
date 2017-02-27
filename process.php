@@ -106,6 +106,16 @@ if (isset($_POST['form']) && $_POST['form'] == 'checkout') {
     $mail->Body = $twig->render('reservation.tpl', ['data' => $data]);
 
     if ( ! $errors) {
+        // Write cars.json file
+        $cars = json_decode(file_get_contents('cars.json'));
+        foreach ($cars as $index => $car) {
+            if ($car->name == $data['car']) {
+                $cars->{$index}->date_expired = substr($data['dropoff'], 0, strpos($data['dropoff'], 'at')-1);
+            }
+        }
+        file_put_contents('cars.json', json_encode($cars, JSON_PRETTY_PRINT));
+
+        // Send email
         if (!$mail->send()) {
             $errors[] = 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
