@@ -500,11 +500,8 @@ $("#checkout-form").submit(function () {
 
                 $('#form_payment input[name=ORDERID]').val( orderid );
                 $('#form_payment input[name=AMOUNT]').val( amount );
-                $('#form_payment input[name=SHASIGN]').val( shasign );
+                // $('#form_payment input[name=SHASIGN]').val( shasign );
 
-                console.log(orderid);
-                console.log(amount);
-                console.log(shasign);
                 $('#form_payment').submit();
                 console.log(orderid);
                 console.log(amount);
