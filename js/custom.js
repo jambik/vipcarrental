@@ -502,7 +502,8 @@ $("#checkout-form").submit(function () {
                 $('#form_payment input[name=AMOUNT]').val( amount );
                 $('#form_payment input[name=SHASIGN]').val( shasign );
 
-                $('#form_payment').submit();
+                // $('#form_payment').submit();
+                console.log(orderid);
                 console.log(amount);
                 console.log(shasign);
 
