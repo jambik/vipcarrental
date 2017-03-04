@@ -1553,7 +1553,7 @@ $cars = json_decode(file_get_contents('cars.json'));
                 <input type="hidden" name="LANGUAGE" value="en_US">
 
                 <!-- check before the payment: see Security: Check before the payment -->
-<!--                <input type="hidden" name="SHASIGN" value="">-->
+                <input type="hidden" name="SHASIGN" value="">
 
                 <!-- post payment redirection: see Transaction feedback to the customer -->
                 <input type="hidden" name="ACCEPTURL" value="http://vipcarrental.biz/?transaction=accept">
