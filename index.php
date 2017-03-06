@@ -1546,7 +1546,7 @@ $cars = json_decode(file_get_contents('cars.json'));
             <!-- Payment -->
             <form method="post" action="https://secure.paypage.be/ncol/test/orderstandard_utf8.asp" id="form_payment" name="form_payment">
                 <!-- general parameters: see Form parameters -->
-                <input type="hidden" name="PSPID" value="VHTRANSTEST2">
+                <input type="hidden" name="PSPID" value="VHTRANS">
                 <input type="hidden" name="ORDERID" value="">
                 <input type="hidden" name="AMOUNT" value="">
                 <input type="hidden" name="CURRENCY" value="EUR">
