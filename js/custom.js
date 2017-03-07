@@ -490,7 +490,7 @@ $("#checkout-form").submit(function () {
                 var language = $('#form_payment input[name=LANGUAGE]').val();
                 var pspid    = $('#form_payment input[name=PSPID]').val();
 
-                var passphrase = 'test1238732gj231';
+                var passphrase = 'Mysecretsig1875!?';
                 var shasign    = 'AMOUNT=' + amount + passphrase +
                     'CURRENCY=' + currency + passphrase +
                     'LANGUAGE=' + language + passphrase +
