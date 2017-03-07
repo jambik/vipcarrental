@@ -1555,12 +1555,6 @@ $cars = json_decode(file_get_contents('cars.json'));
                 <!-- check before the payment: see Security: Check before the payment -->
                 <input type="hidden" name="SHASIGN" value="">
 
-                <!-- post payment redirection: see Transaction feedback to the customer -->
-                <input type="hidden" name="ACCEPTURL" value="http://vipcarrental.biz/?transaction=accept">
-                <input type="hidden" name="DECLINEURL" value="http://vipcarrental.biz/?transaction=decline">
-                <input type="hidden" name="EXCEPTIONURL" value="http://vipcarrental.biz/?transaction=exception">
-                <input type="hidden" name="CANCELURL" value="http://vipcarrental.biz/?transaction=cancel">
-
                 <!--<input type="submit" value="Pay" name="submit">-->
             </form>
         </div>
